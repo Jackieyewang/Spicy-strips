@@ -1,0 +1,10 @@
+{
+  "paymentChannelOpenTimeout": 100,
+  "paymentChannelDisputeTimeout": 10,
+  "paymentResolutionDisputeTimeout": 10,
+  "defaultPaymentTimeout": 50,
+  "maxPendingPayments": 200,
+  "ethJsonRpcUrl": "http://localhost:8545",
+  "ospEthAddress": "0x0015f5863ddc59ab6610d7b6d73b2eacd43e6b7e",
+  "ospNetworkAddress": "http://localhost:29980"
+}

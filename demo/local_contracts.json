@@ -1,0 +1,7 @@
+{
+  "celerLedgerAddress": "0xef52b3484db84c8f976dd5b8540e2b83aecea37c",
+  "celerWalletAddress": "0x8555ae269b34db4317074962ef4e4aed84d5aa2e",
+  "payRegistryAddress": "0x7d7a910a6e7f93750f0151a49cd3dd1011072699",
+  "payResolverAddress": "0x8517f998dfbbcc1b8fe914c050634fa65f093bf8",
+  "virtContractResolverAddress": "0x307a710ee4e311cc788d11d54cf071575172fb64"
+}

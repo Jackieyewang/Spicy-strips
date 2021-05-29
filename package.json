@@ -1,0 +1,93 @@
+{
+  "name": "celer-light-client",
+  "version": "0.16.0",
+  "description": "Celer Light Client",
+  "repository": "https://github.com/celer-network/celer-light-client",
+  "author": {
+    "name": "Michael Zhou",
+    "email": "zhoumotongxue008@gmail.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf browser dist demo_out public_demo_out",
+    "compile": "npx tsc -p .",
+    "build": "yarn run compile && yarn run bundle:browser && yarn run bundle:node && cp -a src/protobufs dist/src/protobufs",
+    "build:demo": "yarn run build && npx parcel build --public-url '.' -d public_demo_out demo/index.html",
+    "build:shop-demo": "yarn run build && npx parcel build --public-url '.' -d public_demo_out demo/index.html demo/shop.html",
+    "bundle:browser": "npx parcel build -d browser --out-file browser.js --global celer src/index.ts",
+    "bundle:node": "npx parcel build --target node src/index.ts",
+    "demo": "yarn run build && npx parcel serve --no-hmr -d demo_out demo/index.html",
+    "docs": "npx typedoc --name \"Celer Light Client API Docs\" --out docs --excludePrivate --disableOutputCheck --theme node_modules/typedoc-thunder-theme/bin/default src",
+    "watch": "npx parcel watch demo/index.html",
+    "generate:contract-bindings": "typechain --target ethers --outDir src/abi 'src/abi/*.json'",
+    "generate:proto-bindings": "scripts/gen_proto_bindings.sh",
+    "test": "scripts/run_integration_tests.sh",
+    "test:ci": "scripts/run_integration_tests.sh 90",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./src/**/*.{js,jsx,ts,tsx}": [
+      "npx prettier --write"
+    ]
+  },
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 2 Safari versions",
+    "last 2 Opera versions",
+    "last 2 Edge versions"
+  ],
+  "browser": "browser/browser.js",
+  "main": "dist/index.js",
+  "types": "dist/src/index.d.ts",
+  "devDependencies": {
+    "@types/jest": "^25.2.1",
+    "@typescript-eslint/eslint-plugin": "^2.31.0",
+    "@typescript-eslint/parser": "^2.31.0",
+    "eslint": "^7.0.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-import-resolver-typescript": "^2.0.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.10.0",
+    "eslint-plugin-json": "^2.1.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.19.0",
+    "fake-indexeddb": "^3.0.0",
+    "husky": "^4.2.5",
+    "jest": "^25.5.4",
+    "lint-staged": "^10.2.2",
+    "parcel-bundler": "^1.12.4",
+    "prettier": "^2.0.5",
+    "ts-jest": "^25.5.0",
+    "typechain": "^2.0.0",
+    "typechain-target-ethers": "^1.0.4",
+    "typedoc": "^0.17.6",
+    "typedoc-thunder-theme": "^0.0.2",
+    "typescript": "^3.9.2"
+  },
+  "dependencies": {
+    "@improbable-eng/grpc-web": "^0.12.0",
+    "@improbable-eng/grpc-web-node-http-transport": "^0.12.0",
+    "@types/detect-node": "^2.0.0",
+    "@types/google-protobuf": "^3.7.2",
+    "browserslist": "^4.12.0",
+    "detect-node": "^2.0.4",
+    "dexie": "^3.0.1",
+    "ethers": "^4.0.47",
+    "google-protobuf": "^3.12.0-rc.1",
+    "ts-protoc-gen": "^0.12.0",
+    "web3": "^1.2.7"
+  },
+  "files": [
+    "browser",
+    "dist",
+    "README.md"
+  ]
+}
