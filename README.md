@@ -1,4 +1,4 @@
-# Celer Light Client
+# Spicy-strips
 
 [![Build Status](https://travis-ci.com/celer-network/celer-light-client.svg?token=DvaxasPgAzCzksHzA2ct&branch=master)](https://travis-ci.com/celer-network/celer-light-client) [![npm version](https://badge.fury.io/js/celer-light-client.svg)](https://badge.fury.io/js/celer-light-client)
 
