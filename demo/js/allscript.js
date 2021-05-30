@@ -14,7 +14,9 @@ $('.btn-number').click(function(e){
     type      = $(this).attr('data-type');
     var input = $("input[name='"+fieldName+"']");
 	/* ticket price */
-	var ticketPrice = $(this).parents('.ticketBox').attr('data-ticket-price');
+	var tiP = $(this).parents('.ticketBox').attr('data-ticket-price');
+    var ticketPrice = parseFloat(tiP)
+    var raisePrice = parseFloat($(this).parents('.ticketBox').attr('data-raise'));
 	/* ticket type */
 	var ticketType = $(this).parents('.ticketBox').find('.ticket-name').html();
 	var total;
@@ -26,9 +28,9 @@ $('.btn-number').click(function(e){
                 input.val(currentVal - 1).change();
 				
 				console.log(input.val());
-				total = ticketPrice * input.val();
+				total = ticketPrice + raisePrice * input.val();
 				console.log(ticketPrice);
-				activeTicket(this, input.val(), ticketPrice, total, ticketType);
+				activeTicket(this, input.val(), ticketPrice, total, ticketType, raisePrice);
             } 
             if(parseInt(input.val()) == input.attr('min')) {
                 $(this).attr('disabled', true);
@@ -40,9 +42,9 @@ $('.btn-number').click(function(e){
                 input.val(currentVal + 1).change();
 				
 				console.log(input.val());
-				total = ticketPrice * input.val();
+				total = ticketPrice + raisePrice * input.val();
 				console.log(ticketPrice);
-				activeTicket(this, input.val(), ticketPrice, total, ticketType);
+				activeTicket(this, input.val(), ticketPrice, total, ticketType, raisePrice);
             }
             if(parseInt(input.val()) == input.attr('max')) {
                 $(this).attr('disabled', true);
@@ -75,7 +77,7 @@ $('.input-number').change(function() {
     }
 });
 
-function activeTicket(target, inputValue, ticketPrice, total, ticketType) {
+function activeTicket(target, inputValue, ticketPrice, total, ticketType, raisePrice) {
 	if(inputValue > 0) {
 		$('#buyTicket .ticketBox').addClass('inActiveTicket');
 		$(target).parents('.ticketBox').removeClass('inActiveTicket').addClass('activeTicket');
@@ -83,6 +85,7 @@ function activeTicket(target, inputValue, ticketPrice, total, ticketType) {
 		$('.ticket-type').html(ticketType);
 		$('.ticket-count').html(inputValue);
 		$('.ticket-amount').html(ticketPrice);
+		$('.ticket-amount').html(raisePrice);
 		$('.total-amount').html(total);
 	} else {
 		$('#buyTicket .ticketBox').removeClass('inActiveTicket');
@@ -91,6 +94,7 @@ function activeTicket(target, inputValue, ticketPrice, total, ticketType) {
 		$('.ticket-type').html('');
 		$('.ticket-count').html(inputValue);
 		$('.ticket-amount').html(ticketPrice);
+		$('.ticket-amount').html(raisePrice);
 		$('.total-amount').html(total);
 	}
 }

@@ -64,7 +64,7 @@ async function withdraw(): Promise<void> {
 
 async function sendPayment(): Promise<void> {
   const { client } = window;
-  const amount = (document.getElementById('amount') as HTMLInputElement).value;
+  const amount = (document.getElementById('total-amount') as HTMLInputElement).value;
   const note = new Any();
   const invoice = new Invoice();
   invoice.setMemo(

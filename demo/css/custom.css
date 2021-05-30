@@ -30,7 +30,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* button style */
 .btn, .btn.disabled {
-    background: #f44336;
+    background: #eb28e1;
     color: #ffffff;
     border: 0;
     border-radius: 20px;
@@ -41,12 +41,102 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn:hover {
-    background: #e53935;
+    background: #291ba0;
 	color: #ffffff;
     box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+    opacity: .5;
+}
+
+/* button connect style */
+.btnconnect, .btnconnect.disabled {
+    background: #f44336;
+    color: #ffffff;
+    border: 0;
+    border-radius: 20px;
+    font-size: 16px;
+    padding: 10px 30px;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+	text-transform: uppercase;
+}
+
+.btnconnect:hover {
+    background: #e53935;
+	color: #ffffff;
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btnconnect.disabled, .btnconnect[disabled], fieldset[disabled] .btnconnect {
+    opacity: .5;
+}
+
+
+/* button channel style */
+.btnchannel, .btnchannel.disabled {
+    background: #263aeb;
+    color: #ffffff;
+    border: 0;
+    border-radius: 20px;
+    font-size: 16px;
+    padding: 10px 30px;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+	text-transform: uppercase;
+}
+
+.btnchannel:hover {
+    background: #e53935;
+	color: #ffffff;
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btnchannel.disabled, .btnchannel[disabled], fieldset[disabled] .btnchannel {
+    opacity: .5;
+}
+
+/* button deps style */
+.btndeps, .btndeps.disabled {
+    background: #b9beeb;
+    color: #ffffff;
+    border: 0;
+    border-radius: 20px;
+    font-size: 12px;
+    padding: 10px 30px;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+	text-transform: uppercase;
+}
+
+.btndeps:hover {
+    background: #553a39;
+	color: #ffffff;
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btndeps.disabled, .btndeps[disabled], fieldset[disabled] .btndeps {
+    opacity: .5;
+}
+
+
+/* button channel style */
+.btnwithdraw, .btnwithdraw.disabled {
+    background: #17f76d;
+    color: #ffffff;
+    border: 0;
+    border-radius: 20px;
+    font-size: 12px;
+    padding: 10px 30px;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+	text-transform: uppercase;
+}
+
+.btnwithdraw:hover {
+    background: #e53935;
+	color: #ffffff;
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btnwithdraw.disabled, .btnwithdraw[disabled], fieldset[disabled] .btnwithdraw {
     opacity: .5;
 }
 
@@ -255,7 +345,7 @@ label {
     color: #000000;
     font-weight: 600;
     float: right;
-    width: 100%;
+    width: 160px;
     text-align: right;
 }
  
@@ -407,7 +497,27 @@ iframe {
 
 .contactForm .btn {
 	width: 100%;
+    margin-top: 10px;
 }
+
+.contactForm .btnconnect {
+	width: 100%;
+}
+.contactForm .btnchannel {
+	width: 100%;
+    margin-top: 10px;
+}
+.contactForm .btndeps {
+	width: 40%;
+    margin-top: 30px;
+}
+
+.contactForm .btnwithdraw {
+	width: 40%;
+    margin-top: 40px;
+    margin-left: 50px;
+}
+
 
 /* side modal style */
 .modal-content {
@@ -510,6 +620,10 @@ iframe {
     margin-top: 20px;
 }
 
+.layui-textarea {
+    width: 80%;
+    height: 600px;
+}
 .cart {
     padding: 15px;
     background: #fff;
